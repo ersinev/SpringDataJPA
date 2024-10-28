@@ -5,6 +5,7 @@ import com.ersin.spring_data_jpa.dto.DtoStudent;
 import com.ersin.spring_data_jpa.dto.DtoStudentIU;
 import com.ersin.spring_data_jpa.entites.Student;
 import com.ersin.spring_data_jpa.services.IStudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class StudentControllerImpl implements IStudentContorller {
     private IStudentService studentService;
     @PostMapping(path = "/save")
     @Override
-    public DtoStudent saveStudent(@RequestBody DtoStudentIU student) {
+    public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU student) {
         return studentService.saveStudent(student);
     }
     @GetMapping(path = "/list")

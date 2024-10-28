@@ -36,7 +36,7 @@ public class StudentServiceImpl implements IStudentService {
     //GET All Students------------------------------------------------------------------
     @Override
     public List<DtoStudent> getAllStudents() {
-        List<Student> students = studentRepository.findAll();
+        List<Student> students = studentRepository.findAllStudents();
         List<DtoStudent> dtoStudents = new ArrayList<>();
 
         for(Student student: students){
@@ -53,7 +53,7 @@ public class StudentServiceImpl implements IStudentService {
     //GET By ID------------------------------------------------------------------
     @Override
     public DtoStudent getStudentById(Long id) {
-        Optional<Student> student = studentRepository.findById(id);
+        Optional<Student> student = studentRepository.findStudentById(id);
         if (student.isPresent()){
             DtoStudent dtoStudent = new DtoStudent();
             BeanUtils.copyProperties(student.get(),dtoStudent);
