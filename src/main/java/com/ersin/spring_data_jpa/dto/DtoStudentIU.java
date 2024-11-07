@@ -21,6 +21,7 @@ public class DtoStudentIU {
     @NotEmpty(message = "First name can not be empty")
     @Size(min = 3, max = 20)
     private String lastName;
+    @NotEmpty(message = "Date of birth can not be empty")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date birthOfDate;
 
